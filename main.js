@@ -1,5 +1,7 @@
 /*
 =======================================================
+DAN BEERMAN
+
 ** Week 1 - Project 2 **
 
 Below are a number of problems for you to solve
@@ -104,10 +106,14 @@ function q7onClick() {
 
 // 8. Collect a number value from the user and when a button is clicked,
 //    then double user's answer and display that value into the HTML page.
-document.getElementById("callDoubleNum").onclick = function() {q8onClick(doubleNum)};
-function q8onClick(doubleNum) {
-    document.getElementById("q8").innerHTML = doubleNum*2;
-}
+
+
+document.getElementById("callDoubleNum").addEventListener("click", function(){
+  document.getElementById("q8").innerHTML = document.getElementById("doubleNum").value * 2;
+});
+
+
+
 
 
 
@@ -119,8 +125,14 @@ function q8onClick(doubleNum) {
 //    Test to see if num1 is greater than num2.
 //    If so, output to the HTML page: Yes, the value of num1 is greater than num2
 //    If not, output to the HTML page: No, the value of num1 is not greater than num2
-
-
+var num1 = 5;
+var num2 = 10;
+if (num1 > num2) {
+  document.getElementById("q9").innerHTML = "Yes, the value of num1 is greater than num2."
+}
+else {
+  document.getElementById("q9").innerHTML = "No, the value of num1 is not greater than num2."
+}
 
 
 
@@ -132,6 +144,16 @@ function q8onClick(doubleNum) {
 //    If the score is between 60 and 89, output to the HTML page "Nice work, keep practicing".
 //    If the score is below 59, output to the HTML page "Very bad: study more and retake the test".
 //    Test to make sure each condition is met properly.
+var score = 90;
+if (score >= 90) {
+  document.getElementById("q10").innerHTML = "Great job";
+}
+else if (60 <= score < 90) {
+  document.getElementById("q10").innerHTML = "Nice work, keep practicing";
+}
+else if (score < 60) {
+  document.getElementById("q10").innerHTML = "Very bad: study more and retake the test";
+}
 
 
 
@@ -144,8 +166,14 @@ function q8onClick(doubleNum) {
 // A. Ask for a user's name, age and city using input fields.
 //    In a single command, take the user's answers and display into the HTML page the sentence:
 //   "My name is __. I'm __ years old, and I live in __."
+// Reach - try putting in an 'onkeyup' event listener so the sentence updates
 
-
+document.getElementById("Submit").addEventListener("click", function(){
+  document.getElementById("qa").innerHTML =
+  "My name is " + document.getElementById("name").value +
+  ". I'm " + document.getElementById("age").value +
+  " years old, and I live in " + document.getElementById("location").value + ".";
+});
 
 
 
@@ -153,14 +181,20 @@ function q8onClick(doubleNum) {
 // B. Create the formula to determine the area of a rectangle.
 //     The rectangle is: 2 inches by 3 inches
 //     Display the result in the HTML page.
-
+function recArea(l,w){
+    return l*w;
+};
+document.getElementById("qb").innerHTML = recArea(2,3);
 
 
 
 
 
 // C. Collect the use's length and width input to determine the area of a rectangle and display within the HTML page the result.
-
+document.getElementById("Submit2").addEventListener("click", function(){
+  document.getElementById("qc").innerHTML =
+  "The area = " + recArea(document.getElementById("length").value, document.getElementById("width").value);
+});
 
 
 
@@ -168,7 +202,11 @@ function q8onClick(doubleNum) {
 
 
 // D. Have the user enter their name into a textfield. When they click a button, find the length (number of characters) of their name and display the result in the HTML page.
-
+// figure out how this works
+document.getElementById("Submit3").addEventListener("click", function(){
+  var userName = document.getElementById("fullname").value;
+  document.getElementById("qd").innerHTML = document.getElementById("fullname").value + " is " + userName.length + " characters long.";
+});
 
 
 
@@ -180,6 +218,25 @@ function q8onClick(doubleNum) {
 //    If the score is between 60 and 89, display a message of "Nice work, keep practicing.".
 //    If the score is below 59, display a message of "Very bad: study more and retake the test.".
 //    You can get fancy by adding CSS styles to each of these displays to change the color, too - Green=Good, Orange=OK, Red=Bad
+
+document.getElementById("sub").addEventListener("click", function(){
+  var score = document.getElementById("score").value;
+  if (score >= 90) {
+    document.getElementById("qe").innerHTML = "Great job!!!";
+    document.getElementById("qe").style.backgroundColor = "#98FB98";
+    document.getElementById("qe").classList.add("status-good");
+  }
+  else if ((59 < score) && (score < 90)){
+    document.getElementById("qe").innerHTML = "Nice work, keep practicing";
+    document.getElementById("qe").style.backgroundColor = "#ffd27f";
+    document.getElementById("qe").classList.add("status-ok");
+  }
+  else {
+    document.getElementById("qe").innerHTML = "Very bad: study more and retake the test";
+    document.getElementById("qe").style.backgroundColor = "#FA8072";
+    document.getElementById("qe").classList.add("status-bad");
+  }
+});
 
 
 
