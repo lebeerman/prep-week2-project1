@@ -1,8 +1,8 @@
 /*
 =======================================================
 DAN BEERMAN
-
-** Week 1 - Project 2 **
+WEEK 2 PROJECT 1 *******
+** Week 1 - Project 2 ** (NOPE)
 
 Below are a number of problems for you to solve
 using JS. The JS code can be written below each
@@ -252,3 +252,19 @@ you can even challenge your classmates!
 Also, consider how you can add/remove CSS styles to create added presentation with the results.
 
 */
+/*
+document.body.onload = addElement;
+function addElement() {
+  // create a new div element
+  // and give it some content
+  var newDiv = document.createElement("div");
+  var newContent = document.createTextNode(
+    "Finished All Challenges - No SANDBOX TRACK, though. This is dynamic text, BTW.");
+  newDiv.appendChild(newContent); //add the text node to the newly created div.
+
+
+  WISHES - add the newly created element and its content into the DOM
+  var currentDiv = document.getElementById("div1");
+  document.body.insertBefore(newDiv, currentDiv);
+
+};*/
